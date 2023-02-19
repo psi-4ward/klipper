@@ -22,7 +22,7 @@ and configured for your system.
 If you want to use the host as a secondary MCU the klipper_mcu process
 must run before the klippy process.
 
-After installing Klipper, install the script. run:
+After installing Klipper, install the systemd unit for `klipper-mcu` and autostart it on boot:
 ```
 cd ~/klipper/
 sudo cp ./scripts/klipper-mcu.service /etc/systemd/system/
@@ -45,6 +45,7 @@ To build and install the new micro-controller code, run:
 ```
 sudo service klipper stop
 make flash
+sudo systemctl start klipper-mcu.service
 sudo service klipper start
 ```
 
